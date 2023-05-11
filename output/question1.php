@@ -1,4 +1,4 @@
-<<?php
+<?php
     require 'Car.php';
     require 'Honda.php';
     require 'Nissan.php';
@@ -11,4 +11,3 @@
     print_r($honda);
     print_r($nissan);
     print_r($ferrari);
-    ?>

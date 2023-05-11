@@ -1,4 +1,4 @@
-<<?php
+<?php
     require 'Car.php';
     require 'Honda.php';
     require 'Nissan.php';
@@ -31,4 +31,3 @@
         "\n加速力" . $ferrari->get_acceleration() . "\n";
     echo "ferrar2 乗組員: " . $ferrari_passenger_3->get_passenger() .
         "\n加速力" . $ferrari_passenger_3->get_acceleration() . "\n";
-    ?>

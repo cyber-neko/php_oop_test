@@ -1,4 +1,4 @@
-<<?php
+<?php
     require 'Car.php';
     require 'Honda.php';
     require 'Nissan.php';
@@ -41,4 +41,3 @@
                 return $ferrari->get_price();
         }
     }
-    ?>

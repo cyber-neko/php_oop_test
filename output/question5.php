@@ -1,4 +1,4 @@
-<<?php
+<?php
     require 'Car.php';
     require 'Honda.php';
     require 'Nissan.php';
@@ -59,4 +59,3 @@
         echo '1位は' . $result[0][0] . "\n2位は" . $result[1][0]
             . "\n3位は" . $result[2][0] . "\n4位は" . $result[3][0];
     }
-    ?>

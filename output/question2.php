@@ -1,4 +1,4 @@
-<<?php
+<?php
     require 'Car.php';
     require 'Ferrari.php';
     require 'constant/CarConstants.php';
@@ -10,4 +10,3 @@
     $ferrari->liftUp();
     echo 'リフトアップ後の加速力： ';
     print_r($ferrari->get_acceleration());
-    ?>
