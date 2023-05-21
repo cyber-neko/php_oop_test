@@ -43,16 +43,37 @@ class Ferrari extends Car
     public function adjust_acceleration()
     {
         $this->acceleration -= ($this->acceleration * $this->passenger * 0.05);
+        $this->default_acceleration = $this->acceleration;
     }
 
-    public function liftUp()
+    public function liftUp($height)
     {
-        $this->height += 40;
-        $this->acceleration *= 0.8;
+        if ($height > 40) {
+            echo '車高は40mmまでしか上げれません。';
+            return;
+        }
+        switch ($newHeight = $this->height + $height) {
+            case ($newHeight >= 40):
+                $this->height = 40;
+                $this->acceleration = $this->default_acceleration * 0.8;
+                echo '車高を' . $this->height  . "mmにしました。\n";
+                break;
+            case ($newHeight >= 20):
+                $this->height = $newHeight;
+                $this->acceleration = $this->default_acceleration * 0.9;
+                echo '車高を' . $this->height  . "mmにしました。\n";
+                break;
+            default:
+                echo '車高を' . $this->height  . "mmにしました。\n";
+        }
     }
 
     public function liftDown()
     {
+        if ($this->height === 0) {
+            echo "リフトアップしていないのでリフトダウンすることはできません。\n";
+            return;
+        }
         $this->height = 0;
         $this->acceleration = $this->default_acceleration;
     }
@@ -67,7 +88,7 @@ class Ferrari extends Car
         // blank
     }
 
-    public function getFrontHeight()
+    public function get_Height()
     {
         return $this->height;
     }
