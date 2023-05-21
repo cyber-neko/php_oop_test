@@ -4,6 +4,7 @@ require 'Ferrari.php';
 require 'constant/CarConstants.php';
 
 $ferrari = new Ferrari();
+
 echo 'リフトアップ前の車高： ' . $ferrari->get_height() . 'mm, ' .
     'リフトアップ前の加速力： ' . $ferrari->get_acceleration() . "m/s\n";
 
