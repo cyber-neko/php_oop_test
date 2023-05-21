@@ -8,6 +8,13 @@ require 'constant/CarConstants.php';
 $honda = new Honda();
 $nissan = new Nissan();
 $ferrari = new Ferrari();
-print_r($honda);
-print_r($nissan);
-print_r($ferrari);
+
+function output(Car $car)
+{
+    echo $car->name . 'の価格は' . $car->get_price() . '円です。定員数は' .
+        $car->get_passenger() . '人です。加速力は' . $car->get_acceleration() . "m/sです。\n";
+}
+
+output($honda);
+output($nissan);
+output($ferrari);
