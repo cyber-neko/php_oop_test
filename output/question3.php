@@ -16,7 +16,7 @@ function calculate_total_and_average_car_price($car_name)
     $total_price = 0;
     $average_price = 0;
     for ($i = 0; $i < $production_number; $i++) {
-        $total_price += calculate_car_price($car_name);
+        $total_price += get_car_price($car_name);
     }
     $average_price = intval($total_price / $production_number);
     echo $car_name . 'の生産台数は' . $production_number . "です。\n"
@@ -24,20 +24,23 @@ function calculate_total_and_average_car_price($car_name)
         . $car_name . "Nissanの平均金額は" . $average_price . "円です。\n\n";
 }
 
-function calculate_car_price($car_name)
+function get_car_price($car_name)
+{
+    $car = produce_car($car_name);
+    return $car->get_price();
+}
+
+function produce_car($car_name)
 {
     switch ($car_name) {
         case 'Honda':
             $price = rand(MIN_HONDA_PRICE, MAX_HONDA_PRICE);
-            $honda = new Honda($price);
-            return $honda->get_price();
+            return new Honda(price: $price);
         case 'Nissan':
             $price = rand(MIN_CAR_PRICE, MAX_NISSAN_PRICE);
-            $nissan = new Nissan($price);
-            return $nissan->get_price();
+            return  new Nissan(price: $price);
         case 'Ferrari':
             $price = rand(MIN_FERRARI_PRICE, MAX_CAR_PRICE);
-            $ferrari = new Ferrari($price);
-            return $ferrari->get_price();
+            return new Ferrari(price: $price);
     }
 }
